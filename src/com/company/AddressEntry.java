@@ -1,3 +1,10 @@
+/** This AddressEntry is a class for creating objects to store user data in an Address_Book
+ *  It contains variables for each element in an Address_Entry and methods for setting and getting those elements
+ * @author John Berge
+ * @since Jan. 23, 2020
+ * @version 1.2
+ */
+
 package com.company;
 
 public class AddressEntry {
