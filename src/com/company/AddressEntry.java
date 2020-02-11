@@ -74,7 +74,7 @@ public class AddressEntry {
      * @returns String of all the variables plus formatting
      */
     public String toString() {
-        return firstName + " " + lastName + "\n" + street + "\n" + city + ", " + state + " " + zip + "\n" + phone + "\n" + email + "\n";
+        return lastName + ", " + firstName + "\n" + street + "\n" + city + ", " + state + " " + zip + "\n" + phone + "\n" + email + "\n";
     }
 
     /** Sets private class variables to given parameter
