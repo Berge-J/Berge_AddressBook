@@ -37,6 +37,11 @@ public class AddressBook {
         AddressEntryList.add(ae);
     }
 
+    /** Takes a user defined string and calls the find function, then allows user to choose items to remove.
+     * Items are removed based on their index number.
+     * @param String lastName is user input for searching list of entries
+     * @returns nothing
+     */
     public void remove(String lastName) {
         int choice = 0;
         find(lastName);
@@ -51,7 +56,15 @@ public class AddressBook {
         }
     }
 
+    /** Takes a user defined string then alphabetized the Address_Entry objects in the Address_Book.
+     * The string is compared to each Address_Entry lastName variable, then the matching entries are printed.
+     * Items are removed based on their index number.
+     * @param String lastName is user input for searching list of entries
+     * @returns nothing
+     */
     public void find(String lastName) {
+        //capitalize first character
+        lastName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
         Collections.sort(AddressEntryList);
         for (AddressEntry AddressEntry : AddressEntryList) {
             if (AddressEntry.getLastName().contains(lastName)) {

@@ -6,13 +6,24 @@
  */
 package com.company;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Menu {
 
-    public static void menu() {
+    /** Menu system based on user input. Calls functions from Menu class and AddressBook class.
+     * Uses a switch statement based on user input to modify AddressBook.
+     * @param AddressBook abk original Address_Book object to be modified
+     * @returns nothing
+     */
+    public static void menu(AddressBook abk) throws IOException {
         Scanner input = new Scanner(System.in);
         int choice;
+        String lName;
+        System.out.println("------------");
         System.out.println("Address Book");
         System.out.println("------------");
         System.out.println("1. Load Address Book From File");
@@ -25,39 +36,72 @@ public class Menu {
         choice = input.nextInt();
         switch (choice) {
             case 1:
-                load();
+                abk = load(abk);
                 break;
             case 2:
-                add();
+                abk = add(abk);
+                System.out.println("Address Added");
                 break;
             case 3:
-                remove();
+                System.out.println("Enter Last Name to Remove: ");
+                lName = input.next();
+                abk.remove(lName);
                 break;
             case 4:
-                find();
+                System.out.println("Enter Last Name to Find: ");
+                lName = input.next();
+                abk.find(lName);
                 break;
             case 5:
-                list();
+                abk.list();
                 break;
             default:
-                quit();
+                System.exit(0);
         }
     }
 
-    public static void load() {}
+    /** Menu option for loading Address_Entry objects to Address_Book from file.
+     * Prompts user for file name, then checks if it exists. If file exists, loads Address_Entries from file.
+     * Outputs number of Address_Entry objects added and total.
+     * @param AddressBook ab original Address_Book object to be added to
+     * @returns AddressBook ab Address_Book object with new entry
+     */
+    public static AddressBook load(AddressBook ab) throws IOException {
+        Scanner input = new Scanner(System.in);
+        String line;
+        int counter = 0;
+        System.out.println("Enter FileName: ");
+        String filename = input.next();
+        if (new File("resources\\" + filename).exists())
+        {
+            FileReader file_input = new FileReader("resources\\" + filename);
+            BufferedReader BR = new BufferedReader(file_input);
 
-    public static void add() {}
-
-    public static void remove() {}
-
-    public static void find() {}
-
-    public static void list() {
+            while((line = BR.readLine()) != null) {
+                AddressEntry ae = new AddressEntry(line, BR.readLine(), BR.readLine(), BR.readLine(), BR.readLine(), (Integer.valueOf(BR.readLine())).intValue(), BR.readLine(), BR.readLine());
+                ab.add(ae);
+                counter++;
+            }
+            BR.close();
+            file_input.close();
+            System.out.println(counter + " New Addresses Loaded. " + ab.AddressEntryList.size() + " Addresses Total.");
+            return ab;
+        } else {
+            System.out.println("File Not Found.");
+            return ab;
+        }
 
     }
 
-    public static void quit() {
-        System.exit(0);
+    /** Menu option for adding new entry prompts user for information then adds Address_Entry to Address_Book
+     * @param AddressBook ab original Address_Book object to be added to
+     * @returns AddressBook ab Address_Book object with new entry
+     */
+    public static AddressBook add(AddressBook ab) {
+        AddressEntry ae = new AddressEntry(prompt_FirstName(), prompt_LastName(), prompt_Street(), prompt_City(), prompt_State(), prompt_Zip(), prompt_Telephone(), prompt_Email());
+        System.out.println("\n" + ae.toString());
+        ab.add(ae);
+        return ab;
     }
 
     /** Print prompt for user input
@@ -68,6 +112,8 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         System.out.println("First Name:");
         String fn = input.next();
+        //capitalize first character
+        fn = fn.substring(0, 1).toUpperCase() + fn.substring(1);
         return fn;
 
     }
@@ -80,6 +126,8 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         System.out.println("Last Name:");
         String ln = input.next();
+        //capitalize first character
+        ln = ln.substring(0, 1).toUpperCase() + ln.substring(1);
         return ln;
 
     }

@@ -197,8 +197,12 @@ public class AddressEntry implements Comparable<AddressEntry> {
         return email;
     }
 
+    /** Override for CompareTo function for use in sorting list.
+     * When alphabetizing it will use lastName variable instead of class object
+     * @returns nothing
+     */
     @Override
     public int compareTo(AddressEntry o) {
-        return this.getFirstName().compareTo(o.getFirstName());
+        return this.getLastName().compareTo(o.getLastName());
     }
 }
