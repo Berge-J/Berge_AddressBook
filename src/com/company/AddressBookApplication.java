@@ -15,7 +15,7 @@ import java.io.*;
 
 import static java.lang.Integer.valueOf;
 
-public class AddressBookApplication {
+public class AddressBookApplication extends Menu {
 
     public static void main(String[] args) throws IOException {
 

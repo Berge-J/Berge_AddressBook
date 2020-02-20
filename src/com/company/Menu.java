@@ -17,7 +17,6 @@ public class Menu {
     /** Menu system based on user input. Calls functions from Menu class and AddressBook class.
      * Uses a switch statement based on user input to modify AddressBook.
      * @param AddressBook abk original Address_Book object to be modified
-     * @returns nothing
      */
     public static void menu(AddressBook abk) throws IOException {
         Scanner input = new Scanner(System.in);
@@ -64,7 +63,7 @@ public class Menu {
      * Prompts user for file name, then checks if it exists. If file exists, loads Address_Entries from file.
      * Outputs number of Address_Entry objects added and total.
      * @param AddressBook ab original Address_Book object to be added to
-     * @returns AddressBook ab Address_Book object with new entry
+     * @return AddressBook ab Address_Book object with new entry
      */
     public static AddressBook load(AddressBook ab) throws IOException {
         Scanner input = new Scanner(System.in);
@@ -95,7 +94,7 @@ public class Menu {
 
     /** Menu option for adding new entry prompts user for information then adds Address_Entry to Address_Book
      * @param AddressBook ab original Address_Book object to be added to
-     * @returns AddressBook ab Address_Book object with new entry
+     * @return AddressBook ab Address_Book object with new entry
      */
     public static AddressBook add(AddressBook ab) {
         AddressEntry ae = new AddressEntry(prompt_FirstName(), prompt_LastName(), prompt_Street(), prompt_City(), prompt_State(), prompt_Zip(), prompt_Telephone(), prompt_Email());
@@ -105,7 +104,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String fn First_Name
+     *  @return String fn First_Name
      */
     public static String prompt_FirstName() {
 
@@ -119,7 +118,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String ln Last_Name
+     *  @return String ln Last_Name
      */
     public static String prompt_LastName() {
 
@@ -133,7 +132,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String st street
+     *  @return String st street
      */
     public static String prompt_Street() {
 
@@ -145,7 +144,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String ct city
+     *  @return String ct city
      */
     public static String prompt_City() {
 
@@ -157,7 +156,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String sta state
+     *  @return String sta state
      */
     public static String prompt_State() {
 
@@ -169,7 +168,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns Int zip zip code
+     *  @return Int zip zip code
      */
     public static int prompt_Zip() {
 
@@ -181,7 +180,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String tel telephone number
+     *  @return String tel telephone number
      */
     public static String prompt_Telephone() {
 
@@ -193,7 +192,7 @@ public class Menu {
     }
 
     /** Print prompt for user input
-     *  @returns String em email
+     *  @return String em email
      */
     public static String prompt_Email() {
 

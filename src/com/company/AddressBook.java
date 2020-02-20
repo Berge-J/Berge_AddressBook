@@ -16,12 +16,10 @@ public class AddressBook {
     ArrayList<AddressEntry> AddressEntryList = new ArrayList<AddressEntry>();
 
     /** Default constructor for Address_Book
-     * @returns nothing
      */
     public AddressBook() {}
 
     /** Uses a loop to print out the Address_Entry object information in the Address_Book List
-     * @returns nothing
      */
     public void list() {
         Collections.sort(AddressEntryList);
@@ -31,7 +29,6 @@ public class AddressBook {
 
     /** Takes an Address_Entry object and adds it to the end of the Address_Book list
      * @param AddressEntry ae is a predefined Address_Entry with information
-     * @returns nothing
      */
     public void add(AddressEntry ae) {
         AddressEntryList.add(ae);
@@ -40,7 +37,6 @@ public class AddressBook {
     /** Takes a user defined string and calls the find function, then allows user to choose items to remove.
      * Items are removed based on their index number.
      * @param String lastName is user input for searching list of entries
-     * @returns nothing
      */
     public void remove(String lastName) {
         int choice = 0;
@@ -60,7 +56,6 @@ public class AddressBook {
      * The string is compared to each Address_Entry lastName variable, then the matching entries are printed.
      * Items are removed based on their index number.
      * @param String lastName is user input for searching list of entries
-     * @returns nothing
      */
     public void find(String lastName) {
         //capitalize first character

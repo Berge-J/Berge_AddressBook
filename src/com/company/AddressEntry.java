@@ -35,7 +35,7 @@ public class AddressEntry implements Comparable<AddressEntry> {
     String email;
 
     /** Default constructor for Address_Entry object filling in each variable with empty data
-     * @returns nothing
+     *
      */
     public AddressEntry() {
         this.firstName = "";
@@ -57,7 +57,7 @@ public class AddressEntry implements Comparable<AddressEntry> {
      * @param int zip Entry ZIP_Code represented by an Integer
      * @param String phone Entry Phone_Number represented by a String
      * @param String email Entry Email represented by a String
-     * @returns nothing
+     *
      */
     AddressEntry(String firstName,String lastName,String street,String city,String state,int zip,String phone,String email) {
         this.firstName = firstName;
@@ -71,7 +71,7 @@ public class AddressEntry implements Comparable<AddressEntry> {
     }
 
     /** Converts variable information to a single string for output
-     * @returns String of all the variables plus formatting
+     * @return String of all the variables plus formatting
      */
     public String toString() {
         return lastName + ", " + firstName + "\n" + street + "\n" + city + ", " + state + " " + zip + "\n" + phone + "\n" + email + "\n";
@@ -79,14 +79,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String firstName Entry First_Name represented by a String
-     * @returns nothing
      */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
     /** gets private class variable from class object
-     * @returns firstName string from Address_Entry
+     * @return firstName string from Address_Entry
      */
     public String getFirstName() {
         return firstName;
@@ -94,14 +93,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String lastName Entry Last_Name represented by a String
-     * @returns nothing
      */
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
     /** gets private class variable from class object
-     * @returns lastName string from Address_Entry
+     * @return lastName string from Address_Entry
      */
     public String getLastName() {
         return lastName;
@@ -109,14 +107,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String street Entry Street_Address represented by a String
-     * @returns nothing
      */
     public void setStreet(String street) {
         this.street = street;
     }
 
     /** gets private class variable from class object
-     * @returns street string from Address_Entry
+     * @return street string from Address_Entry
      */
     public String getStreet() {
         return street;
@@ -124,14 +121,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String city Entry City represented by a String
-     * @returns nothing
      */
     public void setCity(String city) {
         this.city = city;
     }
 
     /** gets private class variable from class object
-     * @returns city string from Address_Entry
+     * @return city string from Address_Entry
      */
     public String getCity() {
         return city;
@@ -139,14 +135,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String state Entry State represented by a String
-     * @returns nothing
      */
     public void setState(String state) {
         this.state = state;
     }
 
     /** gets private class variable from class object
-     * @returns state string from Address_Entry
+     * @return state string from Address_Entry
      */
     public String getState() {
         return state;
@@ -154,14 +149,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param int zip Entry ZIP_Code represented by an Integer
-     * @returns nothing
      */
     public void setZip(int zip) {
         this.zip = zip;
     }
 
     /** gets private class variable from class object
-     * @returns zip integer from Address_Entry
+     * @return zip integer from Address_Entry
      */
     public int getZip() {
         return zip;
@@ -169,14 +163,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String phone Entry Phone_Number represented by a String
-     * @returns nothing
      */
     public void setPhone(String phone) {
         this.phone = phone;
     }
 
     /** gets private class variable from class object
-     * @returns phone string from Address_Entry
+     * @return phone string from Address_Entry
      */
     public String getPhone() {
         return phone;
@@ -184,14 +177,13 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Sets private class variables to given parameter
      * @param String email Entry Email represented by a String
-     * @returns nothing
      */
     public void setEmail(String email) {
         this.email = email;
     }
 
     /** gets private class variable from class object
-     * @returns email string from Address_Entry
+     * @return email string from Address_Entry
      */
     public String getEmail() {
         return email;
@@ -199,7 +191,6 @@ public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Override for CompareTo function for use in sorting list.
      * When alphabetizing it will use lastName variable instead of class object
-     * @returns nothing
      */
     @Override
     public int compareTo(AddressEntry o) {
