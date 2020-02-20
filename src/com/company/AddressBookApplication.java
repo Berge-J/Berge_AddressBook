@@ -8,6 +8,8 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
 import java.util.List;
 import java.io.*;
 
@@ -32,29 +34,12 @@ public class AddressBookApplication {
      */
 
     public static void init(String filename, AddressBook ab) throws IOException {
-        String firstName;
-        String lastName;
-        String street;
-        String city;
-        String state;
-        int zip;
-        String phone;
-        String email;
         String line;
         FileReader file_input = new FileReader(filename);
         BufferedReader BR = new BufferedReader(file_input);
 
         while((line = BR.readLine()) != null) {
-            firstName = line;
-            lastName = BR.readLine();
-            street = BR.readLine();
-            city = BR.readLine();
-            state = BR.readLine();
-            line = BR.readLine();
-            zip = (Integer.valueOf(line)).intValue();
-            phone = BR.readLine();
-            email = BR.readLine();
-            AddressEntry ae = new AddressEntry(firstName, lastName, street, city, state, zip, phone, email);
+            AddressEntry ae = new AddressEntry(line, BR.readLine(), BR.readLine(), BR.readLine(), BR.readLine(), (Integer.valueOf(BR.readLine())).intValue(), BR.readLine(), BR.readLine());
             ab.add(ae);
         }
         BR.close();
@@ -71,6 +56,8 @@ public class AddressBookApplication {
          * adds them to the list of objects in the AddressBook object, then prints the list.
          */
         init("C:\\Users\\berge\\Documents\\CS401\\AddressInputDataFile.txt", ab);
-        ab.list();
+        while(true) {
+            Menu.menu();
+        }
     }
 }

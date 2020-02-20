@@ -10,37 +10,53 @@ import java.util.*;
 
 public class AddressBook {
 
-    /** Number_of_Entries in the Address_Book represented by an integer
-     */
-    int entries;
-
+    Scanner input = new Scanner(System.in);
     /** ArrayList of class object Address_Entries in the Address_Book
      */
-    List<AddressEntry> AddressEntryList = new ArrayList<>();
+    ArrayList<AddressEntry> AddressEntryList = new ArrayList<AddressEntry>();
 
     /** Default constructor for Address_Book
      * @returns nothing
      */
-    public AddressBook() {
-        entries = 0;
-    }
+    public AddressBook() {}
 
     /** Uses a loop to print out the Address_Entry object information in the Address_Book List
      * @returns nothing
      */
     public void list() {
+        Collections.sort(AddressEntryList);
         for(AddressEntry AddressEntry : AddressEntryList)
             System.out.println(AddressEntry.toString());
     }
 
     /** Takes an Address_Entry object and adds it to the end of the Address_Book list
-     * If the number of entries reaches the maximum number of objects,
-     * the list is expanded by copying the list to a new larger list.
      * @param AddressEntry ae is a predefined Address_Entry with information
      * @returns nothing
      */
     public void add(AddressEntry ae) {
         AddressEntryList.add(ae);
-        entries++;
+    }
+
+    public void remove(String lastName) {
+        int choice = 0;
+        find(lastName);
+        while (choice != -1) {
+            System.out.println("Choose entry number to remove (0 to stop):");
+            choice = input.nextInt()-1;
+            if (choice != -1) {
+                System.out.println("Removed " + AddressEntryList.get(choice).getFirstName() + " " + AddressEntryList.get(choice).getLastName() + "\n");
+                AddressEntryList.remove(choice);
+            }
+            find(lastName);
+        }
+    }
+
+    public void find(String lastName) {
+        Collections.sort(AddressEntryList);
+        for (AddressEntry AddressEntry : AddressEntryList) {
+            if (AddressEntry.getLastName().contains(lastName)) {
+                System.out.println((AddressEntryList.indexOf(AddressEntry) + 1) + ". " + AddressEntry.toString());
+            }
+        }
     }
 }

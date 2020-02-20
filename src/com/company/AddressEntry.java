@@ -7,7 +7,7 @@
 
 package com.company;
 
-public class AddressEntry {
+public class AddressEntry implements Comparable<AddressEntry> {
 
     /** Entry First_Name represented by a String
      */
@@ -195,5 +195,10 @@ public class AddressEntry {
      */
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public int compareTo(AddressEntry o) {
+        return this.getFirstName().compareTo(o.getFirstName());
     }
 }
